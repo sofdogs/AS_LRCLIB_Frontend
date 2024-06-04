@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const instance = axios.create ({ 
-  baseURL: 'http://localhost:8000/'
-});
+//const instance = axios.create ({ 
+ // baseURL: 'http://localhost:8000/'
+//});
+
+// setting base URL to local IP
+axios.defaults.baseURL = 'http://192.168.86.157:8000';
 
 function App() {
   const [rootData, setRootData] = useState(null);
@@ -20,21 +23,21 @@ function App() {
 
   // Fetch root data
   useEffect(() => {
-    axios.get('http://localhost:8000/')
+    axios.get('/')
       .then(response => setRootData(response.data))
       .catch(error => console.error(error));
   }, []);
 
   // Fetch health check data
   const fetchHealthData = () => {
-    axios.get('http://localhost:8000/health')
+    axios.get('/health')
       .then(response => setHealthData(response.data))
       .catch(error => console.error(error));
   };
 
   // Fetch track data by ID
   const fetchTrackData = () => {
-    axios.get(`http://localhost:8000/get/${trackId}`)
+    axios.get(`/get/${trackId}`)
       .then(response => setTrackData(response.data))
       .catch(error => console.error(error));
   };
@@ -42,7 +45,7 @@ function App() {
   // Fetch track data by query
   const fetchTrackQueryData = () => {
     const { artist_name, track_name, album_name, duration } = trackQueryData;
-    axios.get(`http://localhost:8000/get/${artist_name}/${track_name}/${album_name}/${duration}`)
+    axios.get(`/get/${artist_name}/${track_name}/${album_name}/${duration}`)
       .then(response => setTrackData(response.data))
       .catch(error => console.error(error));
   };
