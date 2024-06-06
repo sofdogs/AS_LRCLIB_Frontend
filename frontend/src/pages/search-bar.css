@@ -1,11 +1,47 @@
 .Search{ 
-    background-color: #eee9ee;
+    background-color: #D1E9EE;
     height: 100vh; 
     width: 100vw;
 }
 
-.search-bar-ctn{ 
+/* container for business name */
+.name-ctn{ 
     padding-top: 20vh; 
+    width: 60%; 
+    margin: auto; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    min-width: 200px;
+    margin-bottom: -20px;
+}
+
+/* aurally sound styling */
+.name{
+    margin-top: 6px;
+    color: black;
+    font-family: "Medium";
+    font-size: 64px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.logo{ 
+    align-self: center;
+}
+
+/* container for the search bar item */
+.search-bar-ctn{ 
+    width: 50%; 
+    margin: auto; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    min-width: 200px;
+}
+
+/* container for the links under search bar */
+.link-nav-ctn{ 
     width: 40%; 
     margin: auto; 
     display: flex; 

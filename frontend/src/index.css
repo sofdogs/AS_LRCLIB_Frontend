@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face{ 
+  font-family: "Medium";
+  src: local("Tigerlily"),
+  url("./fonts/Tigerlily.otf") format("otf");
+}
