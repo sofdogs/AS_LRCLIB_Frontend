@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-//const instance = axios.create ({ 
- // baseURL: 'http://localhost:8000/'
-//});
-
 // setting base URL to local IP
 axios.defaults.baseURL = 'http://192.168.86.157:8000';
 
