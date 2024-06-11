@@ -1,5 +1,6 @@
 /* src/components/SearchBarResultsList.css */
-  
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
   .search-item {
     display: flex;
     justify-content: space-between;
@@ -7,7 +8,8 @@
     background-color: #a3b7cc; /* Light blue background */
     padding: 10px 20px;
     margin-bottom: 10px;
-    border-radius: 8px;
+    margin-top: 20px;
+    border-radius: 2px;
   }
   
   .track-info {
@@ -18,15 +20,19 @@
   .track-title {
     font-weight: bold;
     margin: 0;
+    font-family:'Montserrat', sans-serif;
   }
   
   .track-artist {
     margin: 0;
     font-style: italic;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .track-album {
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
   }
   
   .track-meta {
@@ -35,7 +41,7 @@
   }
   
   .track-duration {
-    background-color: white;
+    background-color: #F1FCFE;
     padding: 5px 10px;
     border-radius: 8px;
     margin-right: 10px;
@@ -49,9 +55,13 @@
   
   .track-label.synced-lyrics {
     background-color: #add8e6; /* Light blue */
+    box-shadow: 0px 2px 4px black;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .track-label.instrumental {
     background-color: gray;
+    font-family: 'Montserrat', sans-serif;
   }
   
