@@ -1,0 +1,57 @@
+/* src/components/SearchBarResultsList.css */
+  
+  .search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a3b7cc; /* Light blue background */
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  .track-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .track-title {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .track-artist {
+    margin: 0;
+    font-style: italic;
+  }
+  
+  .track-album {
+    margin: 0;
+  }
+  
+  .track-meta {
+    display: flex;
+    align-items: center;
+  }
+  
+  .track-duration {
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  .track-label {
+    background-color: lightgray;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+  
+  .track-label.synced-lyrics {
+    background-color: #add8e6; /* Light blue */
+  }
+  
+  .track-label.instrumental {
+    background-color: gray;
+  }
+  

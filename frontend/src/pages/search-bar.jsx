@@ -21,7 +21,7 @@ const Search = () => {
             </div>
             <div className="search-bar-ctn">
                 <SearchBar setResults = {setResults} />
-               {/*<SearchBarResultsList results = {results} */}
+                <SearchBarResultsList results={results} /> 
             </div>
             <div className = "link-nav-ctn"> 
                 <LinkNav/>

@@ -2,81 +2,52 @@ import React, {useState} from "react";
 import {FaSearch} from "react-icons/fa"; 
 import "./SearchBar.css";
 import axios from 'axios';
+import {SearchBarResultsList} from "../components/SearchResultsList"
 
 // setting base URL to local IP
-axios.defaults.baseURL = 'http://192.168.86.157:8000';
+axios.defaults.baseURL = 'http://192.168.86.44:8000';
 
-export const SearchBar = ({setResults}) => { 
+export const SearchBar = ({ setResults }) => { 
     // setting vars for user input
     const [input, setInput] = useState("");
-
-    //query params init
-    const [trackId, setTrackId] = useState(null);
-
-    // funct to  fetch data from API
-    // value is the text to search for
-    const fetchData = (value) => { 
-        // api call to async function
-        fetch()
-        .then((response) => response.json()) // awaits result and convert to JSON format 
-        .then((json) => { //get back JSON value
-            console.log(json);
-        });
-    };
-
-    // Fetch track data by ID
-    // call fetchTrackData whenever text changes in search bar
-    // will need to change to only a search query 
-    // `data` is the response that was provided by the server
-    const fetchTrackData = (trackId) => {
-        /*
-        const queryParams = { 
-            id: 1, 
-            sort: "desc", 
-        }; 
-        const params = new url.URLSearchParams(queryParams);
-        console.log (params);
-        axios
-            .get(`/get/${params}`)
-            .then(function (response) {
-                console.log(response.data);
-            });
-        */
-       
-        /* to filter later ... (doesnt work with data.filter)
-            const results = data.filter((track) => { 
-                return track && track.id && track.id.toLowerCase().includes(trackId)
-            });
-            console.log(results);
-        */
-
-        axios.get(`/get/${trackId}`)
-        .then(response => response.data)
-        .then((results) => { 
-            //console.log(data)
-
-            // set result var
-            setResults(results);
-        })
-        .catch(error => console.error(error));
-    };
+    //const[results, setResults] = useState([]); 
+    const [loading, setLoading] =  useState(false); 
+    const [error, setError] = useState(null);
 
     const handleChange = (value) => { 
         // set input var to given value 
         setInput(value); 
-
-        // update trackId state var and fetch data 
-        fetchTrackData(value) ; //makes request to API
     }
+
+    const handleSearch = async () => { 
+        setLoading(true);
+        setError(null);
+
+        try { 
+            const response = await axios.get('http://localhost:8000/tracks', {
+                params: { 
+                    q:input,
+                },
+            });
+            setResults(response.data); 
+        } catch (err){ 
+            setError('Error getting data'); 
+        } finally { 
+            setLoading(false);
+        }
+    };
 
     return (
         <div className = "input-wrapper">
-            <FaSearch id = "search-icon"/>
             <input 
                 placeholder = "Search lyrics or songs..." 
                 value = {input}  //sets value of input field to inpput state var
                 onChange = {(e) => handleChange(e.target.value)} //triggered when val of input field changes, e.target.value is the curr val of the input field
             />
+            <button onClick = {handleSearch}><FaSearch id = "search-icon"/></button>
+            {loading && <p>Loading...</p>}
+            {error && <p>{error}</p>}
+            {/* Pass the results to the new component */}
         </div>
     )
 }; 

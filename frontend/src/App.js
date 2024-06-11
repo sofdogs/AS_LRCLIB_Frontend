@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // setting base URL to local IP
-axios.defaults.baseURL = 'http://192.168.86.157:8000';
+axios.defaults.baseURL = 'http://192.168.86.44:8000';
+//axios.defaults.baseURL = 'http://192.168.1.237:8000';
 
 function App() {
   const [rootData, setRootData] = useState(null);
@@ -45,6 +46,13 @@ function App() {
       .then(response => setTrackData(response.data))
       .catch(error => console.error(error));
   };
+    // Fetch track data by query
+    const ftsSearch = () => {
+      const { q, track_name, artist_name, album_name } = trackQueryData;
+      axios.get(`/tracks`)
+        .then(response => setTrackData(response.data))
+        .catch(error => console.error(error));
+    };
 
   return (
     <div className="App">

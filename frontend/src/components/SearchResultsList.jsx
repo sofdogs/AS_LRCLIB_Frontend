@@ -1,16 +1,14 @@
 import React, {useState} from "react";
 import "./SearchResultsList.css";
+import {SearchResult} from "./SearchResults.jsx"
 
-
-export const SearchBarResultsList = () => { 
+export const SearchBarResultsList = ({ results }) => { 
 
     return (
-        <div className = "results-list">
-           <div>A</div>
-           <div>B</div>
-           <div>C</div>
-           <div>D</div>
-           <div>E</div>
-        </div>
-    )
+        <div className="results-list">
+            {results.map((track, id) => {
+                return <SearchResult result = {track} key = {id}/>
+            })}
+      </div>
+    );
 }; 

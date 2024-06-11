@@ -24,5 +24,13 @@ input:focus{
 }
 /* changing search icon color*/
 #search-icon{ 
-    color: #A6A2C0;
+    color: black;
+}
+
+button{ 
+    background-color: #A6A2C0;
+    border: none; 
+    border-radius: 20px; 
+    height: 2.0rem;
+    padding: 0 15px; 
 }
