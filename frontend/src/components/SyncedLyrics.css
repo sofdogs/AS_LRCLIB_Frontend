@@ -1,0 +1,72 @@
+
+.lyrics-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+.lyrics-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%; 
+    max-width: 600px;
+    max-height: 80vh; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden; 
+}
+.lyrics-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .modal-tab {
+    flex: 1;
+    padding: 10px;
+    background:  #d5ecf7; 
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .modal-tab.active {
+    background:  #89d4f7; 
+  }
+  
+  .lyrics-body {
+    overflow-y: auto;
+    max-height: 60vh; 
+  }
+  
+  .lyrics-container {
+    padding: 10px;
+    background: #f3f3f3; 
+    border-radius: 8px;
+    white-space: pre-wrap; 
+  }
+  
+  .lyrics-close {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background: #b9e3f7;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .lyrics{ 
+      font-size: 15px;
+      line-height: 1.5;
+  }

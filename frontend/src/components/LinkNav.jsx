@@ -13,11 +13,15 @@ export const LinkNav = () => {
                     </li>
                     <li>
                         {/* github code */}
-                        <button className="link-btn">Source Code</button>
+                        <a href="https://github.com/sofdogs/Aurally_Sound_LRCLIB" target="_blank" rel="noopener noreferrer" className="link-btn">
+                            Source Code 
+                        </a>
                     </li>
                     <li>
                         {/* song master website */}
-                        <button className="link-btn">Song Master</button>
+                        <a href="https://aurallysound.com/" target="_blank" rel="noopener noreferrer" className="link-btn">
+                            Song Master
+                        </a>
                     </li>
                 </ul>
             </div>

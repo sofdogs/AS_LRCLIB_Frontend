@@ -5,11 +5,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #a3b7cc; /* Light blue background */
+    background-color: #a3b7cc; 
     padding: 10px 20px;
     margin-bottom: 10px;
     margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
     border-radius: 2px;
+    padding: 1rem;
   }
   
   .track-info {
@@ -56,7 +59,7 @@
   .track-label.synced-lyrics {
     background-color: #add8e6; /* Light blue */
     box-shadow: 0px 2px 4px black;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Montserrat', sans-serif;
   }
   
@@ -64,4 +67,5 @@
     background-color: gray;
     font-family: 'Montserrat', sans-serif;
   }
+
   

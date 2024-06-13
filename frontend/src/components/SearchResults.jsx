@@ -1,7 +1,17 @@
 import React, {useState} from "react";
 import "./SearchResult.css"
+import { SyncedLyrics } from "./SyncedLyrics";
 
 export const SearchResult = ({ result }) => { 
+  const [isLyricsOpen, setLyricsOpen] = useState(false); 
+
+  const handleLyricsOpen = () => { 
+    setLyricsOpen(true);
+  }
+
+  const handleLyricsClose= () => { 
+    setLyricsOpen(false);
+  }
     return (
         <div className = "search-item">
             <div className="track-info">
@@ -12,12 +22,21 @@ export const SearchResult = ({ result }) => {
             <div className="track-meta">
               <span className="track-duration">{formatDuration(result.duration)}</span>
               {result.last_lyrics.synced_lyrics && (
-                <button className="track-label synced-lyrics">Synced Lyrics</button>
+                <button className="track-label synced-lyrics" onClick = {handleLyricsOpen}>
+                  Synced Lyrics
+                </button>
               )}
               {result.last_lyrics.instrumental && (
                 <span className="track-label instrumental">Instrumental</span>
               )}
             </div>
+
+            <SyncedLyrics
+              isOpen={isLyricsOpen}
+              onClose={handleLyricsClose}
+              syncedLyrics={result.last_lyrics.synced_lyrics}
+              plainLyrics={result.last_lyrics.plain_lyrics}
+            />
         </div>
     );
 };
