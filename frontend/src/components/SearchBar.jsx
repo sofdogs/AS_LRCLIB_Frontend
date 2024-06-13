@@ -47,7 +47,7 @@ export const SearchBar = ({ setResults }) => {
             <button onClick = {handleSearch}><FaSearch id = "search-icon"/></button>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
-            {/* Pass the results to the new component */}
+            {/* pass the results to the new component */}
         </div>
     )
 }; 
