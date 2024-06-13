@@ -4,13 +4,16 @@ import { SyncedLyrics } from "./SyncedLyrics";
 
 export const SearchResult = ({ result }) => { 
   const [isLyricsOpen, setLyricsOpen] = useState(false); 
+  const [lyricsType, setLyricsType ] = useState ('');
 
   const handleLyricsOpen = () => { 
+    setLyricsType(lyricsType)
     setLyricsOpen(true);
   }
 
   const handleLyricsClose= () => { 
     setLyricsOpen(false);
+    setLyricsType('');
   }
     return (
         <div className = "search-item">
@@ -21,21 +24,27 @@ export const SearchResult = ({ result }) => {
             </div>
             <div className="track-meta">
               <span className="track-duration">{formatDuration(result.duration)}</span>
-              {result.last_lyrics.synced_lyrics && (
-                <button className="track-label synced-lyrics" onClick = {handleLyricsOpen}>
-                  Synced Lyrics
-                </button>
-              )}
-              {result.last_lyrics.instrumental && (
-                <span className="track-label instrumental">Instrumental</span>
-              )}
+                {result.last_lyrics.synced_lyrics ? (
+                  <button className="track-label synced-lyrics" onClick={() => handleLyricsOpen('synced')}>
+                    Lyrics
+                  </button>
+                ) : result.last_lyrics.plain_lyrics ? (
+                  <button className="track-label plain-lyrics" onClick={() => handleLyricsOpen('plain')}>
+                    Lyrics
+                  </button>
+                ) : (
+                  <span>No lyrics available</span>
+                )}
+                {result.last_lyrics.instrumental && (
+                  <span className="track-label instrumental">Instrumental</span>
+                )}
             </div>
 
             <SyncedLyrics
               isOpen={isLyricsOpen}
               onClose={handleLyricsClose}
-              syncedLyrics={result.last_lyrics.synced_lyrics}
-              plainLyrics={result.last_lyrics.plain_lyrics}
+              syncedLyrics={lyricsType === 'synced' ? result.last_lyrics.synced_lyrics : ''}
+              plainLyrics={lyricsType=== 'plain' ? result.last_lyrics.plain_lyrics : ''}
             />
         </div>
     );

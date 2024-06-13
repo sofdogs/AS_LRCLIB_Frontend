@@ -68,4 +68,11 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  .track-label.plain-lyrics {
+    background-color: #303030; 
+    box-shadow: 0px 2px 4px black;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+  }
   

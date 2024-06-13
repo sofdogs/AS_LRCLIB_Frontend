@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {FaSearch} from "react-icons/fa"; 
 import "./SearchBar.css";
 import axios from 'axios';
-import {SearchBarResultsList} from "../components/SearchResultsList"
 
 // setting base URL to local IP
 axios.defaults.baseURL = 'http://192.168.86.44:8000';
@@ -18,6 +17,11 @@ export const SearchBar = ({ setResults }) => {
         // set input var to given value 
         setInput(value); 
     }
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+          handleSearch();
+        }
+      };
 
     const handleSearch = async () => { 
         setLoading(true);
@@ -43,6 +47,7 @@ export const SearchBar = ({ setResults }) => {
                 placeholder = "Search lyrics or songs..." 
                 value = {input}  //sets value of input field to inpput state var
                 onChange = {(e) => handleChange(e.target.value)} //triggered when val of input field changes, e.target.value is the curr val of the input field
+                onKeyDown={handleEnter}
             />
             <button onClick = {handleSearch}><FaSearch id = "search-icon"/></button>
             {loading && <p>Loading...</p>}
