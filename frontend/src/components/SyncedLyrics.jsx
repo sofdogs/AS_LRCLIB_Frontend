@@ -24,11 +24,12 @@ export const SyncedLyrics = ({ isOpen, onClose, syncedLyrics, plainLyrics}) => {
                     </button>
                 </div>
                 <div className="lyrics-body">
-                {activeTab === 'synced' ? (
+                {activeTab === 'synced' && syncedLyrics && (
                     <div className="lyrics-container">
                     <pre className="lyrics">{syncedLyrics}</pre>
                     </div>
-                ) : (
+                )}
+                {activeTab === 'plain' && plainLyrics && (
                     <div className="lyrics-container">
                     <pre className="lyrics">{plainLyrics}</pre>
                     </div>
