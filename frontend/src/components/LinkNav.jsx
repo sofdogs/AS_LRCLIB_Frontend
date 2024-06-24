@@ -8,10 +8,6 @@ export const LinkNav = () => {
             <div className="nav-elements">
                 <ul>
                     <li>
-                        {/* api */}
-                        <button className="link-btn" >API Documenation</button>
-                    </li>
-                    <li>
                         {/* github code */}
                         <a href="https://github.com/sofdogs/Aurally_Sound_LRCLIB" target="_blank" rel="noopener noreferrer" className="link-btn">
                             Source Code 

@@ -28,7 +28,7 @@ export const SearchBar = ({ setResults }) => {
         setError(null);
 
         try { 
-            const response = await axios.get('http://localhost:8000/tracks', {
+            const response = await axios.get('http://192.168.86.44:8000/tracks', {
                 params: { 
                     q:input,
                 },
